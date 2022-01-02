@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CardComponent } from './shared/card/card.component';
+import { RestaurantsComponent } from './features/restaurants/restaurants.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CardComponent
+    CardComponent,
+    RestaurantsComponent
   ],
   imports: [
     BrowserModule,

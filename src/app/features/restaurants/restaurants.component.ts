@@ -17,7 +17,6 @@ export class RestaurantsComponent implements OnInit, OnDestroy {
     this.restaurantsSubscription = this.restaurantService
       .getRestaurants()
       .subscribe((restaurants) => {
-        console.log(restaurants);
         this.restaurants = restaurants;
       });
   }

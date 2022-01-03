@@ -1,0 +1,13 @@
+<div class="restaurants">
+  <h1 class="restaurants-header">
+    {{ restaurants.length }} restaurants are waiting for you
+  </h1>
+  <div class="restaurants-list">
+    <div *ngFor="let restaurant of restaurants">
+      <card
+        [title]="restaurant.name"
+        [description]="restaurant.description"
+      ></card>
+    </div>
+  </div>
+</div>

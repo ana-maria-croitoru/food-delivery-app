@@ -1,3 +1,5 @@
 <div class="meals-list">
-  <card [title]="" [description]=""></card>
+  <div *ngFor="let meal of meals">
+    <card [title]="meal.title" [description]="meal.description"></card>
+  </div>
 </div>

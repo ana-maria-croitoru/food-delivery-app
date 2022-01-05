@@ -1,0 +1,12 @@
+<div class="restaurant-page">
+  <div
+    class="restaurant-description-banner"
+    *ngIf="$restaurant | async as restaurant"
+  >
+    <h1 class="restaurant-name">{{ restaurant.name }}</h1>
+    <h3 class="restaurant-description">{{ restaurant.description }}</h3>
+  </div>
+  <div class="meal-list">
+    <meals [restaurantId]="this.restaurantId"></meals>
+  </div>
+</div>

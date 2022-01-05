@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { MealService } from 'src/app/core/services/meal.service';
 import { Meal } from 'src/app/core/interfaces/meal';
 import { Subscription } from 'rxjs';
@@ -12,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 export class MealsComponent implements OnInit, OnDestroy {
   meals: Meal[] = [];
   mealsSubscription: Subscription;
+  @Input() restaurantId;
   constructor(
     private mealService: MealService,
     private route: ActivatedRoute
@@ -23,8 +24,7 @@ export class MealsComponent implements OnInit, OnDestroy {
       .subscribe((meals) => (this.meals = meals));
   }
   ngOnInit(): void {
-    const restaurantId = this.route.snapshot.params['id'];
-    this.getMeals(restaurantId);
+    this.getMeals(this.restaurantId);
   }
 
   ngOnDestroy(): void {

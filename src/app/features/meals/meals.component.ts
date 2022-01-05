@@ -11,21 +11,20 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MealsComponent implements OnInit, OnDestroy {
   meals: Meal[] = [];
-  restaurantId: string;
   mealsSubscription: Subscription;
   constructor(
     private mealService: MealService,
     private route: ActivatedRoute
   ) {}
 
-  getMeals(): void {
+  getMeals(restaurantId: string): void {
     this.mealsSubscription = this.mealService
-      .getMeals(this.restaurantId)
+      .getMeals(restaurantId)
       .subscribe((meals) => (this.meals = meals));
   }
   ngOnInit(): void {
-    this.restaurantId = this.route.snapshot.params['id'];
-    this.getMeals();
+    const restaurantId = this.route.snapshot.params['id'];
+    this.getMeals(restaurantId);
   }
 
   ngOnDestroy(): void {

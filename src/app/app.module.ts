@@ -8,9 +8,10 @@ import { RestaurantsComponent } from './features/restaurants/restaurants.compone
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { MealsComponent } from './features/meals/meals.component';
 import { RestaurantDetailsPageComponent } from './pages/restaurant-details-page/restaurant-details-page.component';
+import { NavigationBarComponent } from './features/navigation-bar/navigation-bar.component';
 
 @NgModule({
-  declarations: [AppComponent, CardComponent, RestaurantsComponent, HomePageComponent, MealsComponent, RestaurantDetailsPageComponent],
+  declarations: [AppComponent, CardComponent, RestaurantsComponent, HomePageComponent, MealsComponent, RestaurantDetailsPageComponent, NavigationBarComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

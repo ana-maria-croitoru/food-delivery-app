@@ -9,10 +9,28 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { MealsComponent } from './features/meals/meals.component';
 import { RestaurantDetailsPageComponent } from './pages/restaurant-details-page/restaurant-details-page.component';
 import { NavigationBarComponent } from './features/navigation-bar/navigation-bar.component';
+import { NavButtonComponent } from './shared/buttons/nav-button/nav-button.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
-  declarations: [AppComponent, CardComponent, RestaurantsComponent, HomePageComponent, MealsComponent, RestaurantDetailsPageComponent, NavigationBarComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  declarations: [
+    AppComponent,
+    CardComponent,
+    RestaurantsComponent,
+    HomePageComponent,
+    MealsComponent,
+    RestaurantDetailsPageComponent,
+    NavigationBarComponent,
+    NavButtonComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

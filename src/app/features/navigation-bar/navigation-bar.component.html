@@ -1,5 +1,19 @@
 <div class="nav">
   <div class="navbar">
     <p class="logo">TopFood</p>
+    <ul class="navbar-buttons">
+      <li>
+        <nav-button
+          [btnTitle]="this.btnCartTitle"
+          [btnIcon]="this.btnCartIcon"
+        ></nav-button>
+      </li>
+      <li>
+        <nav-button
+          [btnTitle]="this.btnSignInTitle"
+          [btnIcon]="this.btnSignInIcon"
+        ></nav-button>
+      </li>
+    </ul>
   </div>
 </div>

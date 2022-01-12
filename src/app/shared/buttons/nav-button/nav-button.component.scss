@@ -1,0 +1,19 @@
+.btn {
+  border-radius: 50px;
+  color: #777;
+  font-family: "Effra", sans-serif;
+  background-color: #ffff;
+  padding: 12px 25px;
+  font-size: 18px;
+  outline: none;
+  cursor: pointer;
+  border: none;
+}
+.btn:hover {
+  background-color: #ff1e23;
+  color: #ffff;
+}
+
+.btnIcon {
+  vertical-align: middle;
+}

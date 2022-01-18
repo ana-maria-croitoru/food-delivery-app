@@ -1,0 +1,55 @@
+.login-form {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 414px;
+  padding: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.form-container {
+  justify-content: center;
+  display: flex;
+  padding: 30px;
+}
+
+.form-label {
+  font-family: "Effra", sans-serif;
+  line-height: 1.6;
+  font-size: 20px;
+}
+
+.form-control {
+  max-width: 100%;
+  padding: 11px 13px;
+  background: #ffff;
+  color: #ff1e23;
+  border-radius: 4px;
+  margin-bottom: 0.9rem;
+  outline: 0;
+  border: 1px solid #444;
+  font-size: 14px;
+  transition: all 0.3 ease-out;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.material-icons {
+  display: inline-flex;
+  vertical-align: text-bottom;
+}
+
+.submit-btn {
+  background-color: #ff1e23;
+  color: #ffff;
+  transition: all 0.3s ease;
+  border-radius: 50px;
+  font-family: "Effra", sans-serif;
+  padding: 12px 15px;
+  font-size: 18px;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  box-sizing: border-box;
+}

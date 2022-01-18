@@ -1,5 +1,29 @@
 <div class="form-container">
   <form (ngSubmit)="onSubmit()" class="login-form">
+    <label for="fistName" class="form-label"
+      ><mat-icon class="material-icons">person</mat-icon><b>first name</b>
+    </label>
+    <input
+      type="text"
+      class="form-control"
+      id="firstName"
+      ngModel
+      name="firstName"
+      required
+    />
+
+    <label for="lastName" class="form-label"
+      ><mat-icon class="material-icons">person</mat-icon><b>last name</b>
+    </label>
+    <input
+      type="text"
+      class="form-control"
+      id="lastName"
+      ngModel
+      name="lastName"
+      required
+    />
+
     <label for="email" class="form-label"
       ><mat-icon class="material-icons">email</mat-icon><b> email</b>
     </label>
@@ -27,8 +51,8 @@
     <button type="submit" class="submit-btn"><span>SignIn</span></button>
     <br />
     <p>
-      don't have an account?
-      <a class="goto-signUp" routerLink="/signUp">signup</a>
+      already have an account?
+      <a routerLink="/login" class="goto-login">login</a>
     </p>
   </form>
 </div>

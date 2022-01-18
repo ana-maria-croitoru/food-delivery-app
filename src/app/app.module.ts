@@ -15,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { LoginComponent } from './pages/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { SignupComponent } from './pages/signup/signup.component';
+import { SquareButtonComponent } from './shared/buttons/square-button/square-button.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { SignupComponent } from './pages/signup/signup.component';
     NavButtonComponent,
     LoginComponent,
     SignupComponent,
+    SquareButtonComponent,
   ],
   imports: [
     BrowserModule,

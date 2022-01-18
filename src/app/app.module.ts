@@ -12,6 +12,8 @@ import { NavigationBarComponent } from './features/navigation-bar/navigation-bar
 import { NavButtonComponent } from './shared/buttons/nav-button/nav-button.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
+import { LoginComponent } from './pages/login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { MatIconModule } from '@angular/material/icon';
     RestaurantDetailsPageComponent,
     NavigationBarComponent,
     NavButtonComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +33,7 @@ import { MatIconModule } from '@angular/material/icon';
     HttpClientModule,
     BrowserAnimationsModule,
     MatIconModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,18 +1,35 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../../core/services/authentication.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  ReactiveFormsModule,
+  FormsModule,
+} from '@angular/forms';
+import { LoginUser } from 'src/app/core/interfaces/user';
 
 @Component({
-  selector: 'app-login',
+  selector: 'login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
-  constructor() {}
+export class LoginComponent {
+  form: LoginUser = {
+    email: null,
+    password: null,
+  };
 
-  ngOnInit(): void {}
-
-  submitted: boolean = false;
+  constructor(
+    private authService: AuthenticationService,
+    private router: Router
+  ) {}
 
   onSubmit() {
-    this.submitted = true;
+    const { email, password } = this.form;
+    this.authService
+      .signin(email, password)
+      .subscribe(() => this.router.navigate(['/', 'homepage']));
   }
 }

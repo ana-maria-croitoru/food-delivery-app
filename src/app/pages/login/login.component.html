@@ -1,5 +1,5 @@
 <div class="form-container">
-  <form (ngSubmit)="onSubmit()" class="login-form">
+  <form name="form" #f (ngSubmit)="onSubmit()" class="login-form" novalidate>
     <label for="email" class="form-label"
       ><mat-icon class="material-icons">email</mat-icon><b> email</b>
     </label>
@@ -7,7 +7,8 @@
       type="text"
       class="form-control"
       id="email"
-      ngModel
+      [(ngModel)]="form.email"
+      #email="ngModel"
       name="email"
       required
     />
@@ -16,12 +17,14 @@
       <mat-icon class="material-icons">lock</mat-icon><b> password</b></label
     >
     <input
-      type="text"
       class="form-control"
-      id="password"
-      ngModel
+      type="password"
+      class="form-control"
       name="password"
+      [(ngModel)]="form.password"
       required
+      minlength="6"
+      #password="ngModel"
     />
     <br />
     <button type="submit" class="submit-btn"><span>SignIn</span></button>

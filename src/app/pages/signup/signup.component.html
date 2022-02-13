@@ -1,5 +1,5 @@
 <div class="form-container">
-  <form (ngSubmit)="onSubmit()" class="login-form">
+  <form name="registerForm" #form (ngSubmit)="onSubmit()" class="login-form">
     <label for="fistName" class="form-label"
       ><mat-icon class="material-icons">person</mat-icon><b>first name</b>
     </label>
@@ -7,7 +7,8 @@
       type="text"
       class="form-control"
       id="firstName"
-      ngModel
+      [(ngModel)]="signupForm.firstName"
+      #firstName="ngModel"
       name="firstName"
       required
     />
@@ -19,7 +20,8 @@
       type="text"
       class="form-control"
       id="lastName"
-      ngModel
+      [(ngModel)]="signupForm.lastName"
+      #lastName="ngModel"
       name="lastName"
       required
     />
@@ -31,7 +33,8 @@
       type="text"
       class="form-control"
       id="email"
-      ngModel
+      [(ngModel)]="signupForm.email"
+      #email="ngModel"
       name="email"
       required
     />
@@ -43,17 +46,27 @@
       type="text"
       class="form-control"
       id="password"
-      ngModel
+      [(ngModel)]="signupForm.password"
+      #password="ngModel"
       name="password"
+      type="password"
       required
     />
     <br />
     <div class="user-type">
-      <square-button [button_text]="ownerButton"></square-button>
-      <square-button [button_text]="customerButton"></square-button>
+      <square-button
+        [selected]="signupForm.role == 'owner'"
+        [role]="'owner'"
+        (selectRoleEvent)="selectNewRole($event)"
+      ></square-button>
+      <square-button
+        [selected]="signupForm.role == 'customer'"
+        [role]="'customer'"
+        (selectRoleEvent)="selectNewRole($event)"
+      ></square-button>
     </div>
     <br />
-    <button type="submit" class="submit-btn"><span>SignIn</span></button>
+    <button type="submit" class="submit-btn"><span>SignUp</span></button>
     <br />
     <p>
       already have an account?

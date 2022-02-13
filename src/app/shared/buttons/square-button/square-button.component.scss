@@ -12,7 +12,7 @@ button {
   align-items: flex-start;
 }
 
-button:focus {
+.selected {
   color: #ffff;
   background-color: #ff1e23;
 }

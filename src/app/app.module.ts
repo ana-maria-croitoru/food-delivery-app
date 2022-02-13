@@ -13,7 +13,7 @@ import { NavButtonComponent } from './shared/buttons/nav-button/nav-button.compo
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { LoginComponent } from './pages/login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './pages/signup/signup.component';
 import { SquareButtonComponent } from './shared/buttons/square-button/square-button.component';
 
@@ -38,6 +38,7 @@ import { SquareButtonComponent } from './shared/buttons/square-button/square-but
     BrowserAnimationsModule,
     MatIconModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

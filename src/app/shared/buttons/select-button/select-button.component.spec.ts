@@ -1,20 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SquareButtonComponent } from './square-button.component';
+import { SelectButtonComponent } from './select-button.component';
 
 describe('SquareButtonComponent', () => {
-  let component: SquareButtonComponent;
-  let fixture: ComponentFixture<SquareButtonComponent>;
+  let component: SelectButtonComponent;
+  let fixture: ComponentFixture<SelectButtonComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SquareButtonComponent ]
-    })
-    .compileComponents();
+      declarations: [SelectButtonComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SquareButtonComponent);
+    fixture = TestBed.createComponent(SelectButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -15,7 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { LoginComponent } from './pages/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './pages/signup/signup.component';
-import { SquareButtonComponent } from './shared/buttons/square-button/square-button.component';
+import { SelectButtonComponent } from './shared/buttons/select-button/select-button.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,7 @@ import { SquareButtonComponent } from './shared/buttons/square-button/square-but
     NavButtonComponent,
     LoginComponent,
     SignupComponent,
-    SquareButtonComponent,
+    SelectButtonComponent,
   ],
   imports: [
     BrowserModule,

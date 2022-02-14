@@ -1,14 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthenticationService } from '../../core/services/authentication.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-  ReactiveFormsModule,
-  FormsModule,
-} from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginUser } from 'src/app/core/interfaces/user';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'login',
@@ -20,6 +14,7 @@ export class LoginComponent {
     email: null,
     password: null,
   };
+  authSubscription: Subscription;
 
   constructor(
     private authService: AuthenticationService,
@@ -28,8 +23,14 @@ export class LoginComponent {
 
   onSubmit() {
     const { email, password } = this.form;
-    this.authService
+    this.authSubscription = this.authService
       .signin(email, password)
       .subscribe(() => this.router.navigate(['/', 'homepage']));
+  }
+
+  ngOnDestroy(): void {
+    if (this.authSubscription) {
+      this.authSubscription.unsubscribe();
+    }
   }
 }

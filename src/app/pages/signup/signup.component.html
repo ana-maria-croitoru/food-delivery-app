@@ -54,16 +54,16 @@
     />
     <br />
     <div class="user-type">
-      <square-button
+      <select-button
         [selected]="signupForm.role == 'owner'"
-        [role]="'owner'"
-        (selectRoleEvent)="selectNewRole($event)"
-      ></square-button>
-      <square-button
+        [value]="'owner'"
+        (selectValueEvent)="selectNewRole($event)"
+      ></select-button>
+      <select-button
         [selected]="signupForm.role == 'customer'"
-        [role]="'customer'"
-        (selectRoleEvent)="selectNewRole($event)"
-      ></square-button>
+        [value]="'customer'"
+        (selectValueEvent)="selectNewRole($event)"
+      ></select-button>
     </div>
     <br />
     <button type="submit" class="submit-btn"><span>SignUp</span></button>

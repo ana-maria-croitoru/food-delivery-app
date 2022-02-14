@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { CreateUser, SafeUserData } from 'src/app/core/interfaces/user';
 import { AuthenticationService } from 'src/app/core/services/authentication.service';
 
@@ -8,7 +9,7 @@ import { AuthenticationService } from 'src/app/core/services/authentication.serv
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss'],
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent implements OnDestroy {
   signupForm: CreateUser = {
     role: null,
     firstName: null,
@@ -16,6 +17,8 @@ export class SignupComponent implements OnInit {
     email: null,
     password: null,
   };
+
+  authSubscription: Subscription;
 
   constructor(
     private authService: AuthenticationService,
@@ -33,5 +36,9 @@ export class SignupComponent implements OnInit {
     this.signupForm.role = newRole;
   }
 
-  ngOnInit(): void {}
+  ngOnDestroy(): void {
+    if (this.authSubscription) {
+      this.authSubscription.unsubscribe();
+    }
+  }
 }

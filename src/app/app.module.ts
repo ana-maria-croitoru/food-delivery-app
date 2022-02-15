@@ -12,6 +12,10 @@ import { NavigationBarComponent } from './features/navigation-bar/navigation-bar
 import { NavButtonComponent } from './shared/buttons/nav-button/nav-button.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
+import { LoginComponent } from './pages/login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SignupComponent } from './pages/signup/signup.component';
+import { SelectButtonComponent } from './shared/buttons/select-button/select-button.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +27,9 @@ import { MatIconModule } from '@angular/material/icon';
     RestaurantDetailsPageComponent,
     NavigationBarComponent,
     NavButtonComponent,
+    LoginComponent,
+    SignupComponent,
+    SelectButtonComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +37,8 @@ import { MatIconModule } from '@angular/material/icon';
     HttpClientModule,
     BrowserAnimationsModule,
     MatIconModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

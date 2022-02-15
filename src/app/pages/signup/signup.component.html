@@ -1,0 +1,76 @@
+<div class="form-container">
+  <form name="registerForm" #form (ngSubmit)="onSubmit()" class="login-form">
+    <label for="fistName" class="form-label"
+      ><mat-icon class="material-icons">person</mat-icon><b>first name</b>
+    </label>
+    <input
+      type="text"
+      class="form-control"
+      id="firstName"
+      [(ngModel)]="signupForm.firstName"
+      #firstName="ngModel"
+      name="firstName"
+      required
+    />
+
+    <label for="lastName" class="form-label"
+      ><mat-icon class="material-icons">person</mat-icon><b>last name</b>
+    </label>
+    <input
+      type="text"
+      class="form-control"
+      id="lastName"
+      [(ngModel)]="signupForm.lastName"
+      #lastName="ngModel"
+      name="lastName"
+      required
+    />
+
+    <label for="email" class="form-label"
+      ><mat-icon class="material-icons">email</mat-icon><b> email</b>
+    </label>
+    <input
+      type="text"
+      class="form-control"
+      id="email"
+      [(ngModel)]="signupForm.email"
+      #email="ngModel"
+      name="email"
+      required
+    />
+
+    <label for="password" class="form-label">
+      <mat-icon class="material-icons">lock</mat-icon><b> password</b></label
+    >
+    <input
+      type="text"
+      class="form-control"
+      id="password"
+      [(ngModel)]="signupForm.password"
+      #password="ngModel"
+      name="password"
+      type="password"
+      required
+    />
+    <br />
+    <div class="user-type">
+      <select-button
+        [selected]="signupForm.role == 'owner'"
+        [value]="'owner'"
+        (selectValueEvent)="selectNewRole($event)"
+      ></select-button>
+      <select-button
+        [selected]="signupForm.role == 'customer'"
+        [value]="'customer'"
+        (selectValueEvent)="selectNewRole($event)"
+      ></select-button>
+    </div>
+    <br />
+    <button type="submit" class="submit-btn"><span>SignUp</span></button>
+    <br />
+    <p>
+      already have an account?
+      <a routerLink="/login" class="goto-login">login</a>
+    </p>
+  </form>
+</div>

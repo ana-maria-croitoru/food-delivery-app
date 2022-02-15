@@ -1,0 +1,37 @@
+<div class="form-container">
+  <form name="form" #f (ngSubmit)="onSubmit()" class="login-form" novalidate>
+    <label for="email" class="form-label"
+      ><mat-icon class="material-icons">email</mat-icon><b> email</b>
+    </label>
+    <input
+      type="text"
+      class="form-control"
+      id="email"
+      [(ngModel)]="form.email"
+      #email="ngModel"
+      name="email"
+      required
+    />
+
+    <label for="password" class="form-label">
+      <mat-icon class="material-icons">lock</mat-icon><b> password</b></label
+    >
+    <input
+      class="form-control"
+      type="password"
+      class="form-control"
+      name="password"
+      [(ngModel)]="form.password"
+      required
+      minlength="6"
+      #password="ngModel"
+    />
+    <br />
+    <button type="submit" class="submit-btn"><span>SignIn</span></button>
+    <br />
+    <p>
+      don't have an account?
+      <a class="goto-signUp" routerLink="/signUp">signup</a>
+    </p>
+  </form>
+</div>

@@ -1,0 +1,16 @@
+<h2 class="dialogTitle" mat-dialog-title>{{ data.mealName }}</h2>
+<div mat-dialog-content>
+  <p class="dialogDescription">{{ data.mealDescription }}</p>
+  <p>
+    <button (click)="decreaseNumber()"><mat-icon>remove</mat-icon></button>
+    <span class="nrOfMeals">{{ nr }}</span>
+    <button mat-icon-button (click)="increaseNumber()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </p>
+  <div class="btnDiv">
+    <button class="addToCart-btn">
+      <span>Add to cart</span>
+    </button>
+  </div>
+</div>

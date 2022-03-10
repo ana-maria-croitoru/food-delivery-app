@@ -1,7 +1,7 @@
 <div class="meals-list">
   <div *ngFor="let meal of meals">
     <card
-      (click)="openDialog(meal.name, meal.description)"
+      (click)="openDialog(meal)"
       [title]="meal.name"
       [description]="meal.description"
     ></card>

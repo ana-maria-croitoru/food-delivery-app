@@ -34,12 +34,11 @@ export class MealsComponent implements OnInit, OnDestroy {
     this.mealsSubscription.unsubscribe();
   }
 
-  openDialog(name, description) {
+  openDialog(meal: Meal) {
     this.dialog.open(ModalComponent, {
       width: '500px',
       data: {
-        mealName: name,
-        mealDescription: description,
+        meal,
       },
     });
   }

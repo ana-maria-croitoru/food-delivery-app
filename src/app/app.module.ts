@@ -18,6 +18,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { SelectButtonComponent } from './shared/buttons/select-button/select-button.component';
 import { ModalComponent } from './shared/modal/modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { CartComponent } from './features/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     SignupComponent,
     SelectButtonComponent,
     ModalComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,23 +1,39 @@
 import { Injectable } from '@angular/core';
-import { Meal } from 'src/app/core/interfaces/meal';
+import { OrderMeal } from 'src/app/core/interfaces/meal';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  items: Meal[] = [];
-  constructor() {}
+  items: Map<string, OrderMeal> = new Map();
+  restaurantId: string;
 
-  addToCart(meal: Meal) {
-    this.items.push(meal);
+  addToCart(meal: OrderMeal) {
+    if (this.items.size) {
+      if (meal.restaurant !== this.restaurantId) {
+        throw new Error(
+          'Meal does not belong to the same restaurant as the other items in the cart.'
+        );
+      }
+      const orderMeal = this.items.get(meal._id);
+      if (orderMeal) {
+        this.items.set(meal._id, {
+          ...orderMeal,
+          quantity: orderMeal.quantity + meal.quantity,
+        });
+        return;
+      }
+    }
+    this.restaurantId = meal.restaurant;
+    this.items.set(meal._id, meal);
   }
 
   getItems() {
-    return this.items;
+    return Array.from(this.items.values());
   }
 
   clearCart() {
-    this.items = [];
+    this.items = new Map();
     return this.items;
   }
 }

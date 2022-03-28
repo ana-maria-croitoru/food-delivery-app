@@ -1,0 +1,15 @@
+<div class="cart">
+  <div class="cart-item" *ngFor="let item of items">
+    <span>{{ item.quantity }}</span> X
+    <span>{{ item.name }}</span>
+    <!-- <span>{{ item.price | currency }}</span> -->
+  </div>
+  <div class="btnDiv">
+    <button class="cart-btn">
+      <span>Place order</span>
+    </button>
+    <button class="cart-btn" (click)="removeOrder()">
+      <span>Remove order</span>
+    </button>
+  </div>
+</div>

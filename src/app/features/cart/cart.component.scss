@@ -1,0 +1,43 @@
+.cart {
+  min-width: 330px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #ffff;
+  padding: 20px;
+  margin: 100px 300px 0px 0px;
+}
+
+.cart-btn {
+  background-color: #ff1e23;
+  color: #ffff;
+  transition: all 0.3s ease;
+  border-radius: 50px;
+  font-family: "Effra", sans-serif;
+  padding: 12px 15px;
+  font-size: 18px;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  box-sizing: border-box;
+  margin-right: 5px;
+}
+
+.dialogTitle {
+  color: #444;
+  margin-bottom: 30px;
+  font-size: 1.5em;
+  font-size: bold;
+}
+
+.dialogDescription {
+  color: #777;
+  margin-bottom: 25px;
+}
+
+.btnDiv {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}

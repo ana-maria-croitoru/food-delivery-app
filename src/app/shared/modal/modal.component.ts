@@ -1,6 +1,6 @@
-import { Component, ElementRef, OnInit, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CartService } from 'src/app/core/services/cart.service';
 import { Meal } from 'src/app/core/interfaces/meal';
 
@@ -17,11 +17,10 @@ export class ModalComponent {
   nr = 1;
 
   constructor(
+    private dialogRef: MatDialogRef<any>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private cartService: CartService
-  ) {
-    console.log(data);
-  }
+  ) {}
 
   increaseNumber() {
     return (this.nr = this.nr + 1);
@@ -32,7 +31,14 @@ export class ModalComponent {
   }
 
   addToCart(meal: Meal) {
-    this.cartService.addToCart(meal);
-    window.alert('Your product has been added to the cart!');
+    try {
+      this.cartService.addToCart({ ...meal, quantity: this.nr });
+    } catch (e) {
+      // TODO
+      // 1. afiseaza optiuni
+      // sterge chestiile si adauga asta
+      // nu mai adauga asta -> cancel
+    }
+    this.dialogRef.close();
   }
 }

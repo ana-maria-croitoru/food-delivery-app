@@ -36,4 +36,21 @@ export class CartService {
     this.items = new Map();
     return this.items;
   }
+
+  increaseMealQuantity(mealId: string) {
+    const orderMeal = this.items.get(mealId);
+    orderMeal.quantity++;
+    this.items.set(mealId, orderMeal);
+  }
+
+  decreaseMealQuantity(mealId: string) {
+    debugger;
+    const orderMeal = this.items.get(mealId);
+    orderMeal.quantity--;
+    if (orderMeal.quantity === 0) {
+      this.items.delete(mealId);
+    } else {
+      this.items.set(mealId, orderMeal);
+    }
+  }
 }

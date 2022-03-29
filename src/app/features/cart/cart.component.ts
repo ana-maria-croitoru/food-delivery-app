@@ -22,6 +22,16 @@ export class CartComponent {
   removeOrder() {
     this.cartService.clearCart();
   }
+
+  increaseMealQuantity(mealId: string) {
+    this.cartService.increaseMealQuantity(mealId);
+    this.items = this.cartService.getItems();
+  }
+
+  decreaseMealQuantity(mealId: string) {
+    this.cartService.decreaseMealQuantity(mealId);
+    this.items = this.cartService.getItems();
+  }
 }
 
 export interface DialogData {

@@ -23,11 +23,13 @@ export class ModalComponent {
   ) {}
 
   increaseNumber() {
-    return (this.nr = this.nr + 1);
+    this.nr++;
   }
 
   decreaseNumber() {
-    return this.nr > 1 ? (this.nr = this.nr - 1) : this.nr;
+    if (this.nr > 1) {
+      this.nr--;
+    }
   }
 
   addToCart(meal: Meal) {

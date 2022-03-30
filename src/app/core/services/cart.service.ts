@@ -5,27 +5,43 @@ import { OrderMeal } from 'src/app/core/interfaces/meal';
   providedIn: 'root',
 })
 export class CartService {
-  items: Map<string, OrderMeal> = new Map();
+  items: Map<string, OrderMeal>;
   restaurantId: string;
 
-  addToCart(meal: OrderMeal) {
-    if (this.items.size) {
-      if (meal.restaurant !== this.restaurantId) {
-        throw new Error(
-          'Meal does not belong to the same restaurant as the other items in the cart.'
-        );
-      }
-      const orderMeal = this.items.get(meal._id);
-      if (orderMeal) {
-        this.items.set(meal._id, {
-          ...orderMeal,
-          quantity: orderMeal.quantity + meal.quantity,
-        });
-        return;
-      }
+  constructor() {
+    this.items = new Map();
+    const localStorageCart = localStorage.getItem('cartMeal');
+    if (localStorageCart) {
+      this.items = new Map(JSON.parse(localStorageCart));
     }
-    this.restaurantId = meal.restaurant;
-    this.items.set(meal._id, meal);
+  }
+
+  setItemsInLocalstorage() {
+    localStorage.setItem(
+      'cartMeal',
+      JSON.stringify(Array.from(this.items.entries()))
+    );
+  }
+
+  addToCart(meal: OrderMeal) {
+    if (this.restaurantId && meal.restaurant !== this.restaurantId) {
+      throw new Error(
+        'Meal does not belong to the same restaurant as the other items in the cart.'
+      );
+    }
+    if (!this.restaurantId) {
+      this.restaurantId = meal.restaurant;
+    }
+    const orderMeal = this.items.get(meal._id);
+    if (orderMeal) {
+      this.items.set(meal._id, {
+        ...orderMeal,
+        quantity: orderMeal.quantity + meal.quantity,
+      });
+    } else {
+      this.items.set(meal._id, meal);
+    }
+    this.setItemsInLocalstorage();
   }
 
   getItems() {
@@ -34,17 +50,17 @@ export class CartService {
 
   clearCart() {
     this.items = new Map();
-    return this.items;
+    localStorage.removeItem('cartMeal');
   }
 
   increaseMealQuantity(mealId: string) {
     const orderMeal = this.items.get(mealId);
     orderMeal.quantity++;
     this.items.set(mealId, orderMeal);
+    this.setItemsInLocalstorage();
   }
 
   decreaseMealQuantity(mealId: string) {
-    debugger;
     const orderMeal = this.items.get(mealId);
     orderMeal.quantity--;
     if (orderMeal.quantity === 0) {
@@ -52,5 +68,6 @@ export class CartService {
     } else {
       this.items.set(mealId, orderMeal);
     }
+    this.setItemsInLocalstorage();
   }
 }

@@ -21,6 +21,7 @@ export class CartComponent {
 
   removeOrder() {
     this.cartService.clearCart();
+    this.items = this.cartService.getItems();
   }
 
   increaseMealQuantity(mealId: string) {

@@ -1,9 +1,10 @@
 <div class="nav">
   <div class="navbar">
-    <p class="logo">TopFood</p>
+    <p class="logo" routerLink="homepage">TopFood</p>
     <ul class="navbar-buttons">
       <li>
         <nav-button
+          (click)="openDialog()"
           [btnTitle]="this.btnCartTitle"
           [btnIcon]="this.btnCartIcon"
         ></nav-button>

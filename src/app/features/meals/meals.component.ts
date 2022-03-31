@@ -3,6 +3,8 @@ import { MealService } from 'src/app/core/services/meal.service';
 import { Meal } from 'src/app/core/interfaces/meal';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ModalComponent } from 'src/app/shared/modal/modal.component';
 
 @Component({
   selector: 'meals',
@@ -15,7 +17,8 @@ export class MealsComponent implements OnInit, OnDestroy {
   @Input() restaurantId;
   constructor(
     private mealService: MealService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public dialog: MatDialog
   ) {}
 
   getMeals(restaurantId: string): void {
@@ -29,5 +32,14 @@ export class MealsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.mealsSubscription.unsubscribe();
+  }
+
+  openDialog(meal: Meal) {
+    this.dialog.open(ModalComponent, {
+      width: '500px',
+      data: {
+        meal,
+      },
+    });
   }
 }

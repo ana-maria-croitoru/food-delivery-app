@@ -16,6 +16,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './pages/signup/signup.component';
 import { SelectButtonComponent } from './shared/buttons/select-button/select-button.component';
+import { ModalComponent } from './shared/modal/modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CartComponent } from './features/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,8 @@ import { SelectButtonComponent } from './shared/buttons/select-button/select-but
     LoginComponent,
     SignupComponent,
     SelectButtonComponent,
+    ModalComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +44,7 @@ import { SelectButtonComponent } from './shared/buttons/select-button/select-but
     MatIconModule,
     FormsModule,
     ReactiveFormsModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

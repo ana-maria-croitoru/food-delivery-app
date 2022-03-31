@@ -1,0 +1,36 @@
+.addToCart-btn {
+  background-color: #ff1e23;
+  color: #ffff;
+  transition: all 0.3s ease;
+  border-radius: 50px;
+  font-family: "Effra", sans-serif;
+  padding: 12px 15px;
+  font-size: 18px;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  box-sizing: border-box;
+}
+
+.dialogTitle {
+  color: #444;
+  margin-bottom: 30px;
+  font-size: 1.5em;
+  font-size: bold;
+}
+
+.dialogDescription {
+  color: #777;
+  margin-bottom: 25px;
+}
+
+.btnDiv {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.nrOfMeals {
+  margin: 4px;
+  font-size: 1.3em;
+}

@@ -58,8 +58,8 @@ export class AuthenticationService {
   }
 
   logout() {
-    // remove user from local storage to log user out
-    localStorage.removeItem('user');
+    // remove all data from local storage to log user out
+    localStorage.clear();
     this.userSubject.next(null);
   }
 }

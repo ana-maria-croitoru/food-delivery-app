@@ -58,7 +58,7 @@ export class AuthenticationService {
   }
 
   logout() {
-    // remove user from local storage to log user out
+    // remove all data from local storage to log user out
     localStorage.clear();
     this.userSubject.next(null);
   }

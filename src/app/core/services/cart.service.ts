@@ -13,6 +13,7 @@ export class CartService {
     const localStorageCart = localStorage.getItem('cartMeal');
     if (localStorageCart) {
       this.items = new Map(JSON.parse(localStorageCart));
+      this.restaurantId = localStorage.getItem('restaurantId');
     }
   }
 
@@ -23,6 +24,10 @@ export class CartService {
     );
   }
 
+  getRestaurant() {
+    return this.restaurantId;
+  }
+
   addToCart(meal: OrderMeal) {
     if (this.restaurantId && meal.restaurant !== this.restaurantId) {
       throw new Error(
@@ -31,6 +36,7 @@ export class CartService {
     }
     if (!this.restaurantId) {
       this.restaurantId = meal.restaurant;
+      localStorage.setItem('restaurantId', this.restaurantId);
     }
     const orderMeal = this.items.get(meal._id);
     if (orderMeal) {

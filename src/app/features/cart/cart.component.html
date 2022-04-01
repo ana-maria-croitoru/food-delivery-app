@@ -1,9 +1,11 @@
 <div class="cart">
+  <h2>{{ restaurantName }}</h2>
   <div class="cart-item" *ngFor="let item of items">
     <span>{{ item.quantity }}</span> X
     <span>{{ item.name }}</span>
     <button (click)="increaseMealQuantity(item._id)">+</button>
     <button (click)="decreaseMealQuantity(item._id)">-</button>
+    <hr />
   </div>
   <div class="btnDiv">
     <button class="cart-btn">

@@ -15,6 +15,7 @@ export class CartComponent implements OnInit, OnDestroy {
   items: OrderMeal[];
   restaurantName: string;
   restaurantSubscription: Subscription;
+  totalPrice: number;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private cartService: CartService,
@@ -23,21 +24,26 @@ export class CartComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.items = this.cartService.getItems();
     this.getRestaurantName();
+    this.cartService.calculateOrderValue();
+    this.totalPrice = this.cartService.totalPrice;
   }
 
   removeOrder() {
     this.cartService.clearCart();
     this.items = this.cartService.getItems();
+    this.totalPrice = this.cartService.totalPrice;
   }
 
   increaseMealQuantity(mealId: string) {
     this.cartService.increaseMealQuantity(mealId);
     this.items = this.cartService.getItems();
+    this.totalPrice = this.cartService.totalPrice;
   }
 
   decreaseMealQuantity(mealId: string) {
     this.cartService.decreaseMealQuantity(mealId);
     this.items = this.cartService.getItems();
+    this.totalPrice = this.cartService.totalPrice;
   }
 
   getRestaurantName() {

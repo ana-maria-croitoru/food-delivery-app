@@ -15,15 +15,19 @@ export interface DialogData {
 })
 export class ModalComponent {
   nr = 1;
+  productPrice: number;
 
   constructor(
     private dialogRef: MatDialogRef<any>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private cartService: CartService
-  ) {}
+  ) {
+    this.productPrice = this.data.meal.price;
+  }
 
   increaseNumber() {
     this.nr++;
+    this.productPrice = this.nr * this.data.meal.price;
   }
 
   decreaseNumber() {

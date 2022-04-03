@@ -22,3 +22,8 @@ export interface LoginUser {
   email: string;
   password: string;
 }
+
+export enum Role {
+  CUSTOMER = 'CUSTOMER',
+  OWNER = 'OWNER',
+}

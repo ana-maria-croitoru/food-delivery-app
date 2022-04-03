@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { AuthenticationService } from 'src/app/core/services/authentication.service';
 import { CartComponent } from 'src/app/features/cart/cart.component';
 
 @Component({
@@ -12,9 +15,38 @@ export class NavigationBarComponent implements OnInit {
   btnSignInTitle: string = 'SignIn/SignUp';
   btnCartIcon: string = 'shopping_cart';
   btnSignInIcon: string = 'person';
-  constructor(public dialog: MatDialog) {}
+  isUserAuthenticated: boolean;
+  isUserCustomer: boolean;
+  userSubscription: Subscription;
 
-  ngOnInit(): void {}
+  constructor(
+    public dialog: MatDialog,
+    public authenticationService: AuthenticationService,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {
+    this.userSubscription = this.authenticationService.userObservable.subscribe(
+      () => {
+        this.isUserAuthenticated =
+          this.authenticationService.isUserAuthenticated;
+        this.isUserCustomer = this.authenticationService.isCustomer;
+        if (this.isUserAuthenticated) {
+          this.btnSignInTitle = 'Logout';
+        } else {
+          this.btnSignInTitle = 'SignIn/SignUp';
+        }
+      }
+    );
+  }
+
+  handleUserAction() {
+    if (this.isUserAuthenticated) {
+      this.authenticationService.logout();
+      return;
+    }
+    this.router.navigate(['login']);
+  }
 
   openDialog() {
     this.dialog.open(CartComponent, {

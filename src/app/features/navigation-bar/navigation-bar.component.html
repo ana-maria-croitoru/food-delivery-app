@@ -4,6 +4,7 @@
     <ul class="navbar-buttons">
       <li>
         <nav-button
+          *ngIf="isUserCustomer"
           (click)="openDialog()"
           [btnTitle]="this.btnCartTitle"
           [btnIcon]="this.btnCartIcon"
@@ -11,7 +12,7 @@
       </li>
       <li>
         <nav-button
-          routerLink="login"
+          (click)="handleUserAction()"
           [btnTitle]="this.btnSignInTitle"
           [btnIcon]="this.btnSignInIcon"
         ></nav-button>

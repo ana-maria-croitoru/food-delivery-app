@@ -7,12 +7,14 @@ import { OrderMeal } from 'src/app/core/interfaces/meal';
 export class CartService {
   items: Map<string, OrderMeal>;
   restaurantId: string;
+  totalPrice: number = 0;
 
   constructor() {
     this.items = new Map();
     const localStorageCart = localStorage.getItem('cartMeal');
     if (localStorageCart) {
       this.items = new Map(JSON.parse(localStorageCart));
+      this.restaurantId = localStorage.getItem('restaurantId');
     }
   }
 
@@ -23,6 +25,10 @@ export class CartService {
     );
   }
 
+  getRestaurant() {
+    return this.restaurantId;
+  }
+
   addToCart(meal: OrderMeal) {
     if (this.restaurantId && meal.restaurant !== this.restaurantId) {
       throw new Error(
@@ -31,6 +37,7 @@ export class CartService {
     }
     if (!this.restaurantId) {
       this.restaurantId = meal.restaurant;
+      localStorage.setItem('restaurantId', this.restaurantId);
     }
     const orderMeal = this.items.get(meal._id);
     if (orderMeal) {
@@ -42,15 +49,24 @@ export class CartService {
       this.items.set(meal._id, meal);
     }
     this.setItemsInLocalstorage();
+    this.calculateOrderValue();
   }
 
   getItems() {
     return Array.from(this.items.values());
   }
 
+  calculateOrderValue() {
+    this.totalPrice = 0;
+    for (let [_, orderMeal] of this.items) {
+      this.totalPrice += orderMeal.quantity * (orderMeal.price / 100);
+    }
+  }
+
   clearCart() {
     this.items = new Map();
     localStorage.removeItem('cartMeal');
+    this.totalPrice = 0;
   }
 
   increaseMealQuantity(mealId: string) {
@@ -58,6 +74,7 @@ export class CartService {
     orderMeal.quantity++;
     this.items.set(mealId, orderMeal);
     this.setItemsInLocalstorage();
+    this.calculateOrderValue();
   }
 
   decreaseMealQuantity(mealId: string) {
@@ -69,5 +86,6 @@ export class CartService {
       this.items.set(mealId, orderMeal);
     }
     this.setItemsInLocalstorage();
+    this.calculateOrderValue();
   }
 }

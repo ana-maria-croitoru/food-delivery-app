@@ -1,37 +1,61 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CartService } from 'src/app/core/services/cart.service';
+import { RestaurantService } from 'src/app/core/services/restaurant.service';
 import { Meal, OrderMeal } from 'src/app/core/interfaces/meal';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
 })
-export class CartComponent {
+export class CartComponent implements OnInit, OnDestroy {
   items: OrderMeal[];
-
+  restaurantName: string;
+  restaurantSubscription: Subscription;
+  totalPrice: number;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    private cartService: CartService
-  ) {
+    private cartService: CartService,
+    private restaurantService: RestaurantService
+  ) {}
+  ngOnInit() {
     this.items = this.cartService.getItems();
+    this.getRestaurantName();
+    this.cartService.calculateOrderValue();
+    this.totalPrice = this.cartService.totalPrice;
   }
 
   removeOrder() {
     this.cartService.clearCart();
     this.items = this.cartService.getItems();
+    this.totalPrice = this.cartService.totalPrice;
   }
 
   increaseMealQuantity(mealId: string) {
     this.cartService.increaseMealQuantity(mealId);
     this.items = this.cartService.getItems();
+    this.totalPrice = this.cartService.totalPrice;
   }
 
   decreaseMealQuantity(mealId: string) {
     this.cartService.decreaseMealQuantity(mealId);
     this.items = this.cartService.getItems();
+    this.totalPrice = this.cartService.totalPrice;
+  }
+
+  getRestaurantName() {
+    this.restaurantSubscription = this.restaurantService
+      .getRestaurant(this.cartService.restaurantId)
+      .subscribe((restaurant) => (this.restaurantName = restaurant.name));
+  }
+
+  ngOnDestroy() {
+    if (this.restaurantSubscription) {
+      this.restaurantSubscription.unsubscribe();
+    }
   }
 }
 

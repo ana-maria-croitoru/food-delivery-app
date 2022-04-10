@@ -11,13 +11,6 @@
   <p *ngIf="totalPrice !== 0; else templateName">TOTAL: {{ totalPrice }}$</p>
   <ng-template #templateName>There are no items in the cart!</ng-template>
   <div class="btnDiv">
-    <!-- <button
-      [disabled]="totalPrice === 0"
-      class="cart-btn"
-      (click)="placeOrder()"
-    >
-      <span>Place order</span>
-    </button> -->
     <button
       [ngClass]="{
         'btn-disabled': totalPrice === 0,

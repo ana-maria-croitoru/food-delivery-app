@@ -59,7 +59,6 @@ export class CartComponent implements OnInit, OnDestroy {
 
   placeOrder() {
     this.cartSubscription = this.cartService.placeOrder().subscribe(() => {
-      debugger;
       this.router.navigate(['/', 'homepage']);
       this.dialogRef.close();
     });

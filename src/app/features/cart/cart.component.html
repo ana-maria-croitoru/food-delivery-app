@@ -8,12 +8,25 @@
     <button (click)="decreaseMealQuantity(item._id)">-</button>
     <hr />
   </div>
-  <p>TOTAL: {{ totalPrice }}$</p>
+  <p *ngIf="totalPrice !== 0; else templateName">TOTAL: {{ totalPrice }}$</p>
+  <ng-template #templateName>There are no items in the cart!</ng-template>
   <div class="btnDiv">
-    <button class="cart-btn">
+    <button
+      [ngClass]="{
+        'btn-disabled': totalPrice === 0,
+        'cart-btn': totalPrice !== 0
+      }"
+      (click)="placeOrder()"
+    >
       <span>Place order</span>
     </button>
-    <button class="cart-btn" (click)="removeOrder()">
+    <button
+      [ngClass]="{
+        'btn-disabled': totalPrice === 0,
+        'cart-btn': totalPrice !== 0
+      }"
+      (click)="removeOrder()"
+    >
       <span>Remove order</span>
     </button>
   </div>

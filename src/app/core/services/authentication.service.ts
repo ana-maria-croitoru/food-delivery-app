@@ -43,6 +43,11 @@ export class AuthenticationService {
     return this.userSubject.value?.role === Role.CUSTOMER;
   }
 
+  public get accessToken(): string | null {
+    const userData = localStorage.getItem('user');
+    return userData && JSON.parse(userData).accessToken;
+  }
+
   signin(email: string, password: string) {
     return this.http
       .post<UserData>('http://localhost:4000/auth/signin', {

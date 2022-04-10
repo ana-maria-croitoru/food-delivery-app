@@ -23,6 +23,21 @@
   margin: 15px 5px;
 }
 
+.btn-disabled {
+  background-color: grey;
+  pointer-events: none;
+  cursor: not-allowed;
+  color: #ffff;
+  border-radius: 50px;
+  font-family: "Effra", sans-serif;
+  padding: 12px 15px;
+  font-size: 18px;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+  margin: 15px 5px;
+}
+
 .dialogTitle {
   color: #444;
   margin-bottom: 30px;

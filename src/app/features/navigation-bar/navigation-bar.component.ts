@@ -13,6 +13,7 @@ import { CartComponent } from 'src/app/features/cart/cart.component';
 export class NavigationBarComponent implements OnInit {
   btnCartTitle: string = 'Cart';
   btnSignInTitle: string = 'SignIn/SignUp';
+  btnOrdersTitle: string = 'Orders';
   btnCartIcon: string = 'shopping_cart';
   btnSignInIcon: string = 'person';
   isUserAuthenticated: boolean;
@@ -46,6 +47,10 @@ export class NavigationBarComponent implements OnInit {
       return;
     }
     this.router.navigate(['login']);
+  }
+
+  openOrdersPage() {
+    this.router.navigate(['orderspage']);
   }
 
   openDialog() {

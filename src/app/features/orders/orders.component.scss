@@ -1,0 +1,49 @@
+.orders {
+  margin: 0 auto;
+  padding: 30px 30px;
+  max-width: 1300px;
+  width: 100%;
+}
+
+.orders-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.orders-header {
+  display: block;
+  font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  color: #444;
+  line-height: 1.6;
+}
+
+.restaurant-name {
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  color: #444;
+}
+
+.meal-name-and-price {
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  color: #444;
+}
+
+.price {
+  vertical-align: middle;
+  color: #ff1e23;
+}

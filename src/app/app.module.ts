@@ -19,6 +19,8 @@ import { SelectButtonComponent } from './shared/buttons/select-button/select-but
 import { ModalComponent } from './shared/modal/modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CartComponent } from './features/cart/cart.component';
+import { OrdersPageComponent } from './pages/orders-page/orders-page.component';
+import { OrdersComponent } from './features/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { CartComponent } from './features/cart/cart.component';
     SelectButtonComponent,
     ModalComponent,
     CartComponent,
+    OrdersPageComponent,
+    OrdersComponent,
   ],
   imports: [
     BrowserModule,

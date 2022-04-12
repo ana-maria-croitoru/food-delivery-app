@@ -1,0 +1,18 @@
+<div class="orders">
+  <h1 class="orders-header">You have {{ orders.length }} orders</h1>
+  <div class="orders-list">
+    <div *ngFor="let order of orders">
+      <h2 class="restaurant-name">{{ order.restaurantName }}</h2>
+      <div *ngFor="let meal of order.meals">
+        <h4 class="meal-name-and-price">
+          {{ meal.name }} {{ meal.count }}x{{ meal.price / 100 }}$
+        </h4>
+        <p>{{ meal.description }}</p>
+        <hr />
+      </div>
+      <h3 class="meal-name-and-price">
+        Total price <span class="price">{{ order.totalAmount / 100 }}$</span>
+      </h3>
+    </div>
+  </div>
+</div>

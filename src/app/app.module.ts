@@ -21,6 +21,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { CartComponent } from './features/cart/cart.component';
 import { OrdersPageComponent } from './pages/orders-page/orders-page.component';
 import { OrdersComponent } from './features/orders/orders.component';
+import { OwnerRestaurantsComponent } from './features/owner-restaurants/owner-restaurants.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { OrdersComponent } from './features/orders/orders.component';
     CartComponent,
     OrdersPageComponent,
     OrdersComponent,
+    OwnerRestaurantsComponent,
   ],
   imports: [
     BrowserModule,

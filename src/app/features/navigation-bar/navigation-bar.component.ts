@@ -14,6 +14,7 @@ export class NavigationBarComponent implements OnInit {
   btnCartTitle: string = 'Cart';
   btnSignInTitle: string = 'SignIn/SignUp';
   btnOrdersTitle: string = 'Orders';
+  btnOwnerRestaurantsTitle: string = 'My restaurants';
   btnCartIcon: string = 'shopping_cart';
   btnSignInIcon: string = 'person';
   isUserAuthenticated: boolean;

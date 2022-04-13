@@ -54,6 +54,10 @@ export class NavigationBarComponent implements OnInit {
     this.router.navigate(['orderspage']);
   }
 
+  openOwnerRestaurantsPage() {
+    this.router.navigate(['ownerrestaurantspage']);
+  }
+
   openDialog() {
     this.dialog.open(CartComponent, {
       height: '300px',

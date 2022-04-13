@@ -1,15 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-owner-restaurants',
+  selector: 'owner-restaurants',
   templateUrl: './owner-restaurants.component.html',
-  styleUrls: ['./owner-restaurants.component.scss']
+  styleUrls: ['./owner-restaurants.component.scss'],
 })
 export class OwnerRestaurantsComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

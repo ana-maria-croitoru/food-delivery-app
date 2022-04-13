@@ -4,6 +4,12 @@
     <ul class="navbar-buttons">
       <li>
         <nav-button
+          (click)="openOrdersPage()"
+          [btnTitle]="this.btnOrdersTitle"
+        ></nav-button>
+      </li>
+      <li>
+        <nav-button
           *ngIf="isUserCustomer"
           (click)="openDialog()"
           [btnTitle]="this.btnCartTitle"

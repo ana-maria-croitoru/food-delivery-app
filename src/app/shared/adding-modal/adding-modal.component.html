@@ -1,0 +1,28 @@
+<h2 class="dialogTitle" mat-dialog-title>create a {{ data.name }}</h2>
+<div mat-dialog-content class="dialogContent">
+  <form>
+    <h2 class="formLabel">name</h2>
+    <input
+      minlength="3"
+      required
+      type="text"
+      name="name"
+      class="inputName"
+      value
+    />
+    <h2 class="formLabel">description</h2>
+    <textarea
+      minlength="4"
+      required
+      type="text"
+      name="description"
+      class="inputDescription"
+    ></textarea>
+    <div class="btnDiv"></div>
+  </form>
+  <div class="btnDiv">
+    <button class="createRestaurantBtn">
+      <span>Create restaurant</span>
+    </button>
+  </div>
+</div>

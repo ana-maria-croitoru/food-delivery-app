@@ -22,6 +22,7 @@ import { CartComponent } from './features/cart/cart.component';
 import { OrdersPageComponent } from './pages/orders-page/orders-page.component';
 import { OrdersComponent } from './features/orders/orders.component';
 import { OwnerRestaurantsComponent } from './features/owner-restaurants/owner-restaurants.component';
+import { AddingModalComponent } from './shared/adding-modal/adding-modal.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { OwnerRestaurantsComponent } from './features/owner-restaurants/owner-re
     OrdersPageComponent,
     OrdersComponent,
     OwnerRestaurantsComponent,
+    AddingModalComponent,
   ],
   imports: [
     BrowserModule,

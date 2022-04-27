@@ -9,6 +9,7 @@
       name="name"
       class="inputName"
       value
+      [(ngModel)]="restaurantName"
     />
     <h2 class="formLabel">description</h2>
     <textarea
@@ -17,11 +18,15 @@
       type="text"
       name="description"
       class="inputDescription"
+      [(ngModel)]="restaurantDescription"
     ></textarea>
     <div class="btnDiv"></div>
   </form>
   <div class="btnDiv">
-    <button class="createRestaurantBtn">
+    <button
+      class="createRestaurantBtn"
+      (click)="addNewRestaurant(restaurantName, restaurantDescription)"
+    >
       <span>Create restaurant</span>
     </button>
   </div>

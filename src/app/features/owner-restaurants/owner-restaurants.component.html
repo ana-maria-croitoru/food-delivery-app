@@ -1,5 +1,7 @@
 <div class="owner-restaurants">
-  <h1 class="owner-restaurants-header">You have orders</h1>
+  <h1 class="owner-restaurants-header">
+    You have {{ restaurants.length }} restaurants
+  </h1>
   <button (click)="openDialog()">Add restaurant</button>
   <div class="owner-restaurants-list">
     <div *ngFor="let restaurant of restaurants">

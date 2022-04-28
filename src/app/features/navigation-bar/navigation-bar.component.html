@@ -18,9 +18,9 @@
       </li>
       <li>
         <nav-button
-          *ngIf="isUserCustomer === false"
+          *ngIf="isUserOwner"
           (click)="openOwnerRestaurantsPage()"
-          [btnTitle]="this.btnOwnerRestaurantsTitle"
+          [btnTitle]="'My restaurants'"
         ></nav-button>
       </li>
       <li>

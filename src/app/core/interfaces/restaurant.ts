@@ -8,7 +8,3 @@ export interface NewRestaurant {
   name: string;
   description: string;
 }
-
-export interface SafeNewRestaurant extends Restaurant {
-  accessToken: string;
-}

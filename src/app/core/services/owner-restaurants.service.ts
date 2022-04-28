@@ -1,13 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
-import {
-  NewRestaurant,
-  SafeNewRestaurant,
-  Restaurant,
-} from '../interfaces/restaurant';
+import { Restaurant } from '../interfaces/restaurant';
 import { AuthenticationService } from './authentication.service';
-import { map, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -38,7 +34,7 @@ export class OwnerRestaurantsService {
 
   addNewRestaurant(name, description) {
     return this.http
-      .post<SafeNewRestaurant>(
+      .post<Restaurant>(
         'http://localhost:4000/restaurants',
         {
           name,

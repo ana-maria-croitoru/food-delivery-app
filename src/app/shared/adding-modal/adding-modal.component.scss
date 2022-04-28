@@ -1,0 +1,61 @@
+.createRestaurantBtn {
+  background-color: #ff1e23;
+  color: #ffff;
+  transition: all 0.3s ease;
+  border-radius: 50px;
+  font-family: "Effra", sans-serif;
+  padding: 12px 15px;
+  font-size: 18px;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  box-sizing: border-box;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialogTitle {
+  color: #444;
+  margin-bottom: 25px;
+  font-size: 1.5em;
+  font-size: bold;
+}
+
+.formLabel {
+  color: #777;
+  margin-top: 25px;
+}
+
+.inputName {
+  min-width: 420px;
+  padding: 11px 13px;
+  background: #ffff;
+  color: #ff1e23;
+  margin-bottom: 0.9rem;
+  border-radius: 4px;
+  outline: 0;
+  border: 1px solid #444;
+  font-size: 14px;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  margin: 0;
+  box-shadow: 0 0 3px rgb(0 0 0 / 10%), 0 1px 1px rgb(0 0 0 / 10%);
+}
+
+.inputDescription {
+  min-width: 420px;
+  min-height: 200px;
+  padding: 11px 13px;
+  background: #ffff;
+  color: #ff1e23;
+  margin-bottom: 0.9rem;
+  border-radius: 4px;
+  outline: 0;
+  border: 1px solid #444;
+  font-size: 14px;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  box-shadow: 0 0 3px rgb(0 0 0 / 10%);
+}

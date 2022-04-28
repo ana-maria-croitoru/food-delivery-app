@@ -17,6 +17,7 @@ export class NavigationBarComponent implements OnInit {
   btnCartIcon: string = 'shopping_cart';
   btnSignInIcon: string = 'person';
   isUserAuthenticated: boolean;
+  isUserOwner: boolean;
   isUserCustomer: boolean;
   userSubscription: Subscription;
 
@@ -31,6 +32,7 @@ export class NavigationBarComponent implements OnInit {
       () => {
         this.isUserAuthenticated =
           this.authenticationService.isUserAuthenticated;
+        this.isUserOwner = this.authenticationService.isOwner;
         this.isUserCustomer = this.authenticationService.isCustomer;
         if (this.isUserAuthenticated) {
           this.btnSignInTitle = 'Logout';
@@ -51,6 +53,10 @@ export class NavigationBarComponent implements OnInit {
 
   openOrdersPage() {
     this.router.navigate(['orderspage']);
+  }
+
+  openOwnerRestaurantsPage() {
+    this.router.navigate(['owner-restaurants']);
   }
 
   openDialog() {

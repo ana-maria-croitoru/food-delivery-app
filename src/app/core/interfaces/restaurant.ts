@@ -3,3 +3,8 @@ export interface Restaurant {
   name: string;
   description: string;
 }
+
+export interface NewRestaurant {
+  name: string;
+  description: string;
+}

@@ -1,0 +1,15 @@
+<div class="owner-restaurants">
+  <h1 class="owner-restaurants-header">
+    You have {{ restaurants.length }} restaurants
+  </h1>
+  <button (click)="openDialog()">Add restaurant</button>
+  <div class="owner-restaurants-list">
+    <div *ngFor="let restaurant of restaurants">
+      <card
+        [title]="restaurant.name"
+        [description]="restaurant.description"
+        routerLink="{{ restaurant._id }}"
+      ></card>
+    </div>
+  </div>
+</div>

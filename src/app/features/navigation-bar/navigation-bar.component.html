@@ -18,6 +18,13 @@
       </li>
       <li>
         <nav-button
+          *ngIf="isUserOwner"
+          (click)="openOwnerRestaurantsPage()"
+          [btnTitle]="'My restaurants'"
+        ></nav-button>
+      </li>
+      <li>
+        <nav-button
           (click)="handleUserAction()"
           [btnTitle]="this.btnSignInTitle"
           [btnIcon]="this.btnSignInIcon"

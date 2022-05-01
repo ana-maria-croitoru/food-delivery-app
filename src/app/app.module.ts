@@ -23,6 +23,7 @@ import { OrdersPageComponent } from './pages/orders-page/orders-page.component';
 import { OrdersComponent } from './features/orders/orders.component';
 import { OwnerRestaurantsComponent } from './features/owner-restaurants/owner-restaurants.component';
 import { AddingModalComponent } from './shared/adding-modal/adding-modal.component';
+import { OwnerMealsComponent } from './features/owner-meals/owner-meals.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { AddingModalComponent } from './shared/adding-modal/adding-modal.compone
     OrdersComponent,
     OwnerRestaurantsComponent,
     AddingModalComponent,
+    OwnerMealsComponent,
   ],
   imports: [
     BrowserModule,

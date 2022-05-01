@@ -1,0 +1,27 @@
+.meals-list {
+  display: flex;
+  padding: 30px 30px 0 40px;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1300px;
+}
+
+.owner-meals {
+  margin: 0 auto;
+  padding: 30px 30px;
+  max-width: 1300px;
+  width: 100%;
+}
+
+.owner-meals-header {
+  display: block;
+  font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  color: #444;
+  line-height: 1.6;
+}

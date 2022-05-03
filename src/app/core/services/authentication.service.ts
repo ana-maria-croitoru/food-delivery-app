@@ -36,7 +36,7 @@ export class AuthenticationService {
   }
 
   public get isOwner(): boolean {
-    return this.userSubject.value.role === Role.OWNER;
+    return this.userSubject.value?.role === Role.OWNER;
   }
 
   public get isCustomer(): boolean {

@@ -7,9 +7,9 @@
       required
       type="text"
       name="name"
-      class="inputName"
+      class="input"
       value
-      [(ngModel)]="restaurantName"
+      [(ngModel)]="name"
     />
     <h2 class="formLabel">description</h2>
     <textarea
@@ -17,17 +17,31 @@
       required
       type="text"
       name="description"
-      class="inputDescription"
-      [(ngModel)]="restaurantDescription"
+      class="input"
+      [(ngModel)]="description"
     ></textarea>
-    <div class="btnDiv"></div>
+    <h2 *ngIf="data.name === 'meal'" class="formLabel">price</h2>
+    <input
+      *ngIf="data.name === 'meal'"
+      minlength="2"
+      required
+      type="text"
+      name="price"
+      class="input"
+      value
+      [(ngModel)]="price"
+    />
   </form>
   <div class="btnDiv">
     <button
       class="createRestaurantBtn"
-      (click)="addNewRestaurant(restaurantName, restaurantDescription)"
+      (click)="
+        data.name === 'meal'
+          ? addNewMeal(name, description, price, data.restaurantId)
+          : addNewRestaurant(name, description)
+      "
     >
-      <span>Create restaurant</span>
+      <span>Create {{ data.name }}</span>
     </button>
   </div>
 </div>

@@ -1,5 +1,5 @@
 <div class="owner-meals">
-  <h1 class="owner-meals-header">You have meals</h1>
+  <h1 class="owner-meals-header">You have {{ meals.length }} meals</h1>
   <button (click)="openDialog()">Add meal</button>
   <div class="meals-list">
     <div *ngFor="let meal of meals">

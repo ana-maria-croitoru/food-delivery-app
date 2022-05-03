@@ -4,6 +4,7 @@ import { AddingModalComponent } from 'src/app/shared/adding-modal/adding-modal.c
 import { OwnerRestaurantsService } from '../../core/services/owner-restaurants.service';
 import { Subscription } from 'rxjs';
 import { Restaurant } from 'src/app/core/interfaces/restaurant';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'owner-restaurants',
@@ -13,12 +14,15 @@ import { Restaurant } from 'src/app/core/interfaces/restaurant';
 export class OwnerRestaurantsComponent implements OnInit, OnDestroy {
   restaurants: Restaurant[] = [];
   ownerRestaurantSubscription: Subscription;
+  restaurantId: string;
   constructor(
     public dialog: MatDialog,
-    private ownerResService: OwnerRestaurantsService
+    private ownerResService: OwnerRestaurantsService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
+    this.restaurantId = this.route.snapshot.params['id'];
     this.getOwnerRestaurants();
   }
 
@@ -32,7 +36,7 @@ export class OwnerRestaurantsComponent implements OnInit, OnDestroy {
     this.dialog.open(AddingModalComponent, {
       width: '500px',
       height: '600px',
-      data: { name: 'restaurant' },
+      data: { name: 'restaurant', restaurantId: this.restaurantId },
     });
   }
 

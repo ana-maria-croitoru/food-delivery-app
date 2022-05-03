@@ -25,10 +25,9 @@
 
 .formLabel {
   color: #777;
-  margin-top: 25px;
 }
 
-.inputName {
+.input {
   min-width: 420px;
   padding: 11px 13px;
   background: #ffff;
@@ -40,22 +39,6 @@
   font-size: 14px;
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
-  margin: 0;
+  margin-bottom: 25px;
   box-shadow: 0 0 3px rgb(0 0 0 / 10%), 0 1px 1px rgb(0 0 0 / 10%);
-}
-
-.inputDescription {
-  min-width: 420px;
-  min-height: 200px;
-  padding: 11px 13px;
-  background: #ffff;
-  color: #ff1e23;
-  margin-bottom: 0.9rem;
-  border-radius: 4px;
-  outline: 0;
-  border: 1px solid #444;
-  font-size: 14px;
-  -webkit-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
-  box-shadow: 0 0 3px rgb(0 0 0 / 10%);
 }

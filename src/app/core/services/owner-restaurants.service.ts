@@ -10,9 +10,8 @@ import { tap } from 'rxjs/operators';
 })
 export class OwnerRestaurantsService {
   private ownerRestaurants: Restaurant[] = [];
-  public restaurantSubject: BehaviorSubject<Restaurant[]> = new BehaviorSubject(
-    []
-  );
+  private restaurantSubject: BehaviorSubject<Restaurant[]> =
+    new BehaviorSubject([]);
   constructor(
     private http: HttpClient,
     private authService: AuthenticationService
@@ -32,7 +31,7 @@ export class OwnerRestaurantsService {
     return this.restaurantSubject.asObservable();
   }
 
-  addNewRestaurant(name, description) {
+  addNewRestaurant(name: string, description: string) {
     return this.http
       .post<Restaurant>(
         'http://localhost:4000/restaurants',

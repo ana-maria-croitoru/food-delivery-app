@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Inject } from '@angular/core';
 import { OwnerRestaurantsService } from '../../core/services/owner-restaurants.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -15,7 +15,7 @@ export interface DialogData {
   templateUrl: './adding-modal.component.html',
   styleUrls: ['./adding-modal.component.scss'],
 })
-export class AddingModalComponent implements OnInit {
+export class AddingModalComponent implements OnInit, OnDestroy {
   ownerRestaurantSubscription: Subscription;
   name: string;
   description: string;
@@ -41,5 +41,9 @@ export class AddingModalComponent implements OnInit {
       .addNewMeal(name, description, price, restaurantId)
       .subscribe();
     this.dialogRef.close();
+  }
+
+  ngOnDestroy(): void {
+    this.ownerRestaurantSubscription.unsubscribe();
   }
 }

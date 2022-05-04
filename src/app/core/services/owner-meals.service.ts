@@ -9,7 +9,7 @@ import { AuthenticationService } from './authentication.service';
   providedIn: 'root',
 })
 export class OwnerMealsService {
-  public mealSubject: BehaviorSubject<Meal[]> = new BehaviorSubject([]);
+  private mealSubject: BehaviorSubject<Meal[]> = new BehaviorSubject([]);
   public ownerMeals: Meal[] = [];
   constructor(
     private http: HttpClient,
@@ -30,7 +30,12 @@ export class OwnerMealsService {
     return this.mealSubject.asObservable();
   }
 
-  addNewMeal(name, description, price, restaurantId) {
+  addNewMeal(
+    name: string,
+    description: string,
+    price: number,
+    restaurantId: string
+  ): Observable<Meal> {
     return this.http
       .post<Meal>(
         `http://localhost:4000/restaurants/meals`,

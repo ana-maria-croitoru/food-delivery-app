@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddingModalComponent } from 'src/app/shared/adding-modal/adding-modal.component';
 import { Meal } from 'src/app/core/interfaces/meal';
@@ -10,10 +10,10 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './owner-meals.component.html',
   styleUrls: ['./owner-meals.component.scss'],
 })
-export class OwnerMealsComponent implements OnInit {
-  public ownerMealsSubscription: Subscription;
-  public meals: Meal[] = [];
-  restaurantId: string;
+export class OwnerMealsComponent implements OnInit, OnDestroy {
+  private ownerMealsSubscription: Subscription;
+  private meals: Meal[] = [];
+  public restaurantId: string;
   constructor(
     public dialog: MatDialog,
     public ownerMealsService: OwnerMealsService,
@@ -25,17 +25,21 @@ export class OwnerMealsComponent implements OnInit {
     this.getOwnerMeals(this.restaurantId);
   }
 
-  getOwnerMeals(restaurantId: string) {
+  getOwnerMeals(restaurantId: string): void {
     this.ownerMealsSubscription = this.ownerMealsService
       .getOwnerMeals(restaurantId)
       .subscribe((meals) => (this.meals = meals));
   }
 
-  openDialog() {
+  openDialog(): void {
     this.dialog.open(AddingModalComponent, {
       width: '500px',
       height: '600px',
       data: { name: 'meal', restaurantId: this.restaurantId },
     });
+  }
+
+  ngOnDestroy(): void {
+    this.ownerMealsSubscription.unsubscribe();
   }
 }

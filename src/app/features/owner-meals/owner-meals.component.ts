@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class OwnerMealsComponent implements OnInit, OnDestroy {
   private ownerMealsSubscription: Subscription;
-  private meals: Meal[] = [];
+  public meals: Meal[] = [];
   public restaurantId: string;
   constructor(
     public dialog: MatDialog,

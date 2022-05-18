@@ -12,7 +12,7 @@ export class SelectButtonComponent {
   @Output() selectValueEvent = new EventEmitter<string>();
   constructor() {}
 
-  selectValue(value: string) {
-    this.selectValueEvent.emit(value);
+  selectValue() {
+    this.selectValueEvent.emit(this.value);
   }
 }

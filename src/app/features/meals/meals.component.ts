@@ -15,11 +15,7 @@ export class MealsComponent implements OnInit, OnDestroy {
   meals: Meal[] = [];
   mealsSubscription: Subscription;
   @Input() restaurantId;
-  constructor(
-    private mealService: MealService,
-    private route: ActivatedRoute,
-    public dialog: MatDialog
-  ) {}
+  constructor(private mealService: MealService, public dialog: MatDialog) {}
 
   getMeals(restaurantId: string): void {
     this.mealsSubscription = this.mealService

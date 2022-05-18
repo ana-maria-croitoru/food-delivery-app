@@ -1,7 +1,7 @@
 <button
   type="button"
   [ngClass]="selected ? 'selected' : ''"
-  (click)="selectValue(value)"
+  (click)="selectValue()"
 >
-  {{ value }}
+  <span> {{ value }}</span>
 </button>

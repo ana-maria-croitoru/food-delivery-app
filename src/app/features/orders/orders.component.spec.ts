@@ -47,6 +47,45 @@ describe('OrdersComponent', () => {
     const orderService = jasmine.createSpyObj('OrderService', ['getOrders']);
     getOrdersSpy = orderService.getOrders.and.returnValue(of(orders));
 
+
+  beforeEach(waitForAsync(() => {
+    const orders = [
+      {
+        customer: 'Customer order 1',
+        restaurant: '1',
+        restaurantname: 'Test 1 restaurant name',
+        meals: [
+          {
+            _id: '001',
+            name: 'Meal name',
+            description: 'Meal description',
+            price: 100,
+            restaurant: 'Restaurant',
+            quantity: 1,
+          },
+          {
+            _id: '002',
+            name: 'Meal 2 name',
+            description: 'Meal 2 description',
+            price: 200,
+            restaurant: 'Restaurant 2',
+            quantity: 1,
+          },
+        ],
+        totalAmount: 1000,
+        restaurantOwner: 'Test 1 restaurant owner',
+      },
+      {
+        customer: 'Customer order 2',
+        restaurant: '21',
+        restaurantname: 'Test 2 restaurant name',
+        totalAmount: 2000,
+        restaurantOwner: 'Test 2 restaurant owner',
+      },
+    ];
+    const orderService = jasmine.createSpyObj('OrderService', ['getOrders']);
+    getOrdersSpy = orderService.getOrders.and.returnValue(of(orders));
+
     TestBed.configureTestingModule({
       declarations: [OrdersComponent],
       providers: [{ provide: OrderService, useValue: orderService }],

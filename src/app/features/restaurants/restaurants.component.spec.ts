@@ -2,11 +2,11 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { RestaurantService } from 'src/app/core/services/restaurant.service';
 import { CardComponent } from 'src/app/shared/card/card.component';
-// import { cold } from 'jasmine-marbles';
+//import { cold } from 'jasmine-marbles';
 
 import { RestaurantsComponent } from './restaurants.component';
 
-fdescribe('RestaurantsComponent', () => {
+describe('RestaurantsComponent', () => {
   let component: RestaurantsComponent;
   let fixture: ComponentFixture<RestaurantsComponent>;
 
@@ -46,11 +46,11 @@ fdescribe('RestaurantsComponent', () => {
     component = fixture.componentInstance;
   });
 
-  fit('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  fit('should display restaurants message', () => {
+  it('should display restaurants message', () => {
     fixture.detectChanges(); // -> run ngOnInit
 
     const compiled = fixture.debugElement.nativeElement;
@@ -66,7 +66,7 @@ fdescribe('RestaurantsComponent', () => {
       .toBe(1);
   });
 
-  fit('should display restaurants', () => {
+  it('should display restaurants', () => {
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
 

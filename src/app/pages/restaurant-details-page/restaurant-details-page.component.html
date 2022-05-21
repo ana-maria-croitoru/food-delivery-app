@@ -3,10 +3,14 @@
     class="restaurant-description-banner"
     *ngIf="$restaurant | async as restaurant"
   >
-    <h1 class="restaurant-name">{{ restaurant.name }}</h1>
-    <h3 class="restaurant-description">{{ restaurant.description }}</h3>
+    <h1 data-cy="restaurant-name" class="restaurant-name">
+      {{ restaurant.name }}
+    </h1>
+    <h3 data-cy="restaurant-description" class="restaurant-description">
+      {{ restaurant.description }}
+    </h3>
   </div>
-  <div class="meal-list">
+  <div data-cy="meal-list" class="meal-list">
     <meals [restaurantId]="this.restaurantId"></meals>
   </div>
 </div>
